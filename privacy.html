@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VisualEdit Privacy Policy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p class="back"><a href="./">VisualEdit</a></p>
+<h1>Privacy Policy</h1>
+<p class="meta">Last updated: 15 October 2026</p>
+
+<p>VisualEdit is a Chrome extension and a small helper program that run on your computer. They let you point at an element on your own local website, change it, and have the change written into your project files. This page explains what information is used when you do that. Short version: your files stay on your computer, we run no ads or tracking, and the only thing that leaves your computer is what you send to the AI.</p>
+
+<h2>What the extension does</h2>
+<ul>
+<li>The extension only works on pages at <code>localhost</code> and <code>127.0.0.1</code>, that is, sites you run on your own computer. It does not read any other website.</li>
+<li>It reads the page you are editing so you can select elements and see their styles. That information stays between the extension and the helper program on your computer.</li>
+<li>It has no analytics, no advertising and no tracking.</li>
+</ul>
+
+<h2>What stays on your computer</h2>
+<ul>
+<li>Your project files. The helper program reads and writes them locally.</li>
+<li>A settings folder (<code>.visualedit</code> in your user folder) with a random device ID, your license key and its activation ID if you have a Pro license, and your own AI key if you add one.</li>
+</ul>
+
+<h2>What is sent when you use the AI</h2>
+<p>When you give the AI a command, the helper program sends this to our server: your command, the HTML of the element you selected, and the related style rule or component code needed to make the change. It also sends your device ID or license key so we can count your requests. Our server passes the request on to an AI provider and returns the answer.</p>
+<ul>
+<li>The Free plan uses Groq. The Pro plan uses DeepSeek. DeepSeek is operated from China, so Pro requests may be processed there. Each provider handles the data under its own terms and privacy policy.</li>
+<li>We do not store the text of your commands, your code or the AI's answers. Our server forwards them and keeps only the counters described below.</li>
+<li>Do not select elements that contain passwords, keys or other secrets, because their text would be sent to the AI.</li>
+</ul>
+
+<h2>What we store</h2>
+<ul>
+<li><b>Usage record:</b> your device ID (or license key for Pro), your plan, how many AI requests you used, and when the current period began. This is needed to apply the plan limits.</li>
+<li><b>Abuse protection:</b> daily counters that use a salted, one-way hash of your network address (not the address itself). They are removed after the day ends.</li>
+<li>Our hosting provider, Cloudflare, handles the network traffic and may keep standard technical logs as described in its own policy.</li>
+</ul>
+
+<h2>Payments and licenses</h2>
+<p>Pro is sold through Lemon Squeezy, which acts as the seller of record and handles payment, taxes and receipts. We never see your card details. When you activate a license key, our server asks Lemon Squeezy whether the key is valid and how many computers it is active on.</p>
+
+<h2>Who we share data with</h2>
+<p>Only the service providers named above: the AI providers (Groq, DeepSeek), Cloudflare (hosting) and Lemon Squeezy (payments and licenses). We do not sell your data and we do not use it for advertising.</p>
+
+<h2>Keeping and deleting data</h2>
+<p>Usage records are kept while your device ID or license is in use. To have your usage record deleted, email us with your Support ID (shown in the extension under Account, Help &amp; about) and we will delete it. Your local files can be removed by deleting the settings folder and uninstalling the extension.</p>
+
+<h2>Children</h2>
+<p>VisualEdit is a developer tool and is not directed at children.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, we will update the date above. Material changes will also be mentioned in the extension's release notes.</p>
+
+<h2>Contact</h2>
+<p>Questions or requests: <a href="mailto:visualedithelp.support@gmail.com">visualedithelp.support@gmail.com</a></p>
+</main>
+</body>
+</html>
