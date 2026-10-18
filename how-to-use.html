@@ -44,6 +44,19 @@
 <li>For an important project, keep a copy or use git, as you would with any tool that writes your files.</li>
 </ul>
 
+<h2>Git (optional, recommended)</h2>
+<p>Git is a free tool that keeps a history of your project. You do not need it to use VisualEdit, but with it every change can be reviewed and taken back at any time, even after VisualEdit is closed.</p>
+<p><strong>If your project is already in git:</strong> VisualEdit saves each change as its own commit, with a message that starts with <code>VisualEdit:</code>. It only commits the files it wrote, so your own unfinished work is left alone. See what it did with <code>git log</code>. Take one change back with <code>git revert &lt;commit&gt;</code>.</p>
+<p><strong>If your project is not in git yet, to start using it:</strong></p>
+<ol>
+<li>Install <a href="https://git-scm.com/downloads">git</a> once (on Windows, the installer's default choices are fine). Check it with <code>git --version</code> in a terminal.</li>
+<li>Tell git who you are, once: <code>git config --global user.name "Your Name"</code> and <code>git config --global user.email "you@example.com"</code>.</li>
+<li>In your project folder run: <code>git init</code>, then <code>git add .</code>, then <code>git commit -m "First version"</code>. This saves your project as it is now, before any VisualEdit change.</li>
+<li>Restart the helper (<code>npx visualedit</code>) in that folder. The panel now tells you the project uses git.</li>
+</ol>
+<p><strong>To keep a copy online (optional):</strong> create a free account on <a href="https://github.com">GitHub</a>, create a new empty repository there (private if you like), and GitHub shows two commands to copy: <code>git remote add origin &lt;the address&gt;</code> and <code>git push -u origin main</code>. Run them in your project folder. After that, send your changes any time with <code>git push</code>.</p>
+<p><strong>If you do not want any commits from VisualEdit</strong>, simply do not use git in that folder: Undo and Revert all keep working without it.</p>
+
 <h2>Free and Pro</h2>
 <ul>
 <li>Editing by hand (Properties, Tree, adding, moving, deleting) is always free and unlimited.</li>
