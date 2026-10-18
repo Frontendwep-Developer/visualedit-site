@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to use VisualEdit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p class="back"><a href="./">VisualEdit</a></p>
+<h1>How to use VisualEdit</h1>
+<p class="meta">Edit your local website visually in Chrome. Every change is written into your project files.</p>
+
+<h2>What you need</h2>
+<ul>
+<li>Google Chrome with the VisualEdit extension.</li>
+<li><a href="https://nodejs.org">Node.js</a> 20.12 or newer. Install it once; most developers already have it.</li>
+<li>A website project on your computer that you open on <code>localhost</code>: plain HTML and CSS, or React with Vite (Tailwind CSS v4 or plain CSS).</li>
+</ul>
+
+<h2>Every time you edit</h2>
+<ol>
+<li><strong>Start the helper in your project folder.</strong> Open a terminal in the folder of your project and run <code>npx visualedit</code>. Keep that window open while you edit. It edits the project of the folder it was started in.</li>
+<li><strong>Open your site.</strong> Start it the way you always do (for example VS Code Live Server or <code>npm run dev</code>) and open its <code>localhost</code> address in Chrome.</li>
+<li><strong>Open the side panel.</strong> Click the VisualEdit icon in Chrome's toolbar. The first time, read the short notice and press <em>I understand</em>. The panel shows a green dot and your project's name when the helper is running.</li>
+<li><strong>Select an element.</strong> Turn on <em>Select</em> at the top of the panel and click anything on your page.</li>
+<li><strong>Change it.</strong>
+  <ul>
+  <li><em>Properties</em>: change colours, sizes, spacing, fonts, borders and more by hand, then press <em>Save</em>. Unlimited and free.</li>
+  <li><em>Chat</em>: describe the change in plain words, for example "make this button green and a little bigger". The AI writes it for you.</li>
+  <li><em>Tree</em>: see the structure of your page and pick the exact element you want.</li>
+  <li>The <em>+</em> button in Properties adds a new element (a heading, text, a button, a picture...) next to or inside the selected one.</li>
+  </ul>
+</li>
+<li><strong>See the result.</strong> The change is written into your files right away and your page updates.</li>
+<li><strong>When you are done</strong>, press Ctrl+C in the terminal to stop the helper.</li>
+</ol>
+
+<h2>Undo and safety</h2>
+<ul>
+<li><em>Undo</em> and <em>Redo</em> at the top of the panel step through your changes. <em>Revert all</em> puts every file back as it was when you started the helper.</li>
+<li>Git is not required. If your project is a git repository, VisualEdit also commits each change (the message starts with <code>VisualEdit:</code>), so you can review or undo it later with your usual git tools.</li>
+<li>For an important project, keep a copy or use git, as you would with any tool that writes your files.</li>
+</ul>
+
+<h2>Free and Pro</h2>
+<ul>
+<li>Editing by hand (Properties, Tree, adding, moving, deleting) is always free and unlimited.</li>
+<li>The Free plan includes 30 AI requests in total. You can see how many are left under the chat box and in the Account panel (the person icon).</li>
+</ul>
+
+<h2>If something does not work</h2>
+<ul>
+<li><strong>"Agent offline"</strong>: the helper is not running. Start <code>npx visualedit</code> in your project folder again; the panel finds it within a few seconds.</li>
+<li><strong>"This page doesn't look like the project..."</strong>: the open page belongs to another project than the one the helper was started in. Open that project's site, or start the helper in this page's folder.</li>
+<li><strong>"Element not found in the source file"</strong>: the page is out of date or comes from another folder. Reload the page and select the element again.</li>
+<li><strong>The AI did not change what you expected</strong>: the AI changes only the selected element. Select the right one (the Tree tab helps) and describe the change again.</li>
+<li><strong>"The free AI is at capacity right now"</strong>: try again later. Editing by hand still works.</li>
+</ul>
+
+<h2>Privacy</h2>
+<p>The extension only works on <code>localhost</code> pages. Only an AI command sends something out: your command and the code of the selected element. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+
+<h2>Help</h2>
+<p>Write to <a href="mailto:visualedithelp.support@gmail.com">visualedithelp.support@gmail.com</a>. The Account panel has a Support link that fills in your Support ID for you.</p>
+</main>
+</body>
+</html>
