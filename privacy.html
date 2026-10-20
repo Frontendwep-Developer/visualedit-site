@@ -25,6 +25,7 @@
 <ul>
 <li>Your project files. The helper program reads and writes them locally.</li>
 <li>A settings folder (<code>.visualedit</code> in your user folder) with a random device ID, your license key and its activation ID if you have a Pro license, and your own AI key if you add one.</li>
+<li>An undo history: for each change VisualEdit makes, a copy of the changed file before and after the change, so Undo and Redo work without git. It is kept in your app-data folder (<code>visualedit</code> in AppData on Windows, Application Support on macOS), only the last 100 changes, and never leaves your computer.</li>
 </ul>
 
 <h2>What is sent when you use the AI</h2>
