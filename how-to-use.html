@@ -21,7 +21,7 @@
 
 <h2>Every time you edit</h2>
 <ol>
-<li><strong>Start the helper in your project folder.</strong> Open a terminal in the folder of your project and run <code>npx visualedit</code>. Keep that window open while you edit. It edits the project of the folder it was started in.</li>
+<li><strong>Start the helper in your project folder.</strong> Open a terminal in the folder of your project and run <code>npx visualedit-agent</code>. Keep that window open while you edit. It edits the project of the folder it was started in.</li>
 <li><strong>Open your site.</strong> Start it the way you always do (for example VS Code Live Server or <code>npm run dev</code>) and open its <code>localhost</code> address in Chrome.</li>
 <li><strong>Open the side panel.</strong> Click the VisualEdit icon in Chrome's toolbar. The first time, read the short notice and press <em>I understand</em>. The panel shows a green dot and your project's name when the helper is running.</li>
 <li><strong>Select an element.</strong> Turn on <em>Select</em> at the top of the panel and click anything on your page.</li>
@@ -52,7 +52,7 @@
 <li>Install <a href="https://git-scm.com/downloads">git</a> once (on Windows, the installer's default choices are fine). Check it with <code>git --version</code> in a terminal.</li>
 <li>Tell git who you are, once: <code>git config --global user.name "Your Name"</code> and <code>git config --global user.email "you@example.com"</code>.</li>
 <li>In your project folder run: <code>git init</code>, then <code>git add .</code>, then <code>git commit -m "First version"</code>. This saves your project as it is now, before any VisualEdit change.</li>
-<li>Restart the helper (<code>npx visualedit</code>) in that folder. The panel now tells you the project uses git.</li>
+<li>Restart the helper (<code>npx visualedit-agent</code>) in that folder. The panel now tells you the project uses git.</li>
 </ol>
 <p><strong>To keep a copy online (optional):</strong> create a free account on <a href="https://github.com">GitHub</a>, create a new empty repository there (private if you like), and GitHub shows two commands to copy: <code>git remote add origin &lt;the address&gt;</code> and <code>git push -u origin main</code>. Run them in your project folder. After that, send your changes any time with <code>git push</code>.</p>
 <p><strong>If you do not want any commits from VisualEdit</strong>, simply do not use git in that folder: Undo and Revert all keep working without it.</p>
@@ -66,7 +66,7 @@
 
 <h2>If something does not work</h2>
 <ul>
-<li><strong>"Agent offline"</strong>: the helper is not running. Start <code>npx visualedit</code> in your project folder again; the panel finds it within a few seconds.</li>
+<li><strong>"Agent offline"</strong>: the helper is not running. Start <code>npx visualedit-agent</code> in your project folder again; the panel finds it within a few seconds.</li>
 <li><strong>"This page doesn't look like the project..."</strong>: the open page belongs to another project than the one the helper was started in. Open that project's site, or start the helper in this page's folder.</li>
 <li><strong>"Element not found in the source file"</strong>: the page is out of date or comes from another folder. Reload the page and select the element again.</li>
 <li><strong>The AI did not change what you expected</strong>: the AI changes only the selected element. Select the right one (the Tree tab helps) and describe the change again.</li>
