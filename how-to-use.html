@@ -15,15 +15,15 @@
 <h2>What you need</h2>
 <ul>
 <li>Google Chrome with the VisualEdit extension.</li>
-<li><a href="https://nodejs.org">Node.js</a> 20.12 or newer. Install it once; most developers already have it.</li>
+<li><a href="https://nodejs.org">Node.js</a>, the current LTS version (20.12 is the minimum). Install it once; most developers already have it.</li>
 <li>A website project on your computer that you open on <code>localhost</code>: plain HTML and CSS, or React with Vite (Tailwind CSS v4 or plain CSS).</li>
 </ul>
 
 <h2>Every time you edit</h2>
 <ol>
 <li><strong>Start the helper in your project folder.</strong> Open a terminal in the folder of your project and run <code>npx visualedit-agent</code>. Keep that window open while you edit. It edits the project of the folder it was started in.</li>
-<li><strong>Open your site.</strong> Start it the way you always do (for example VS Code Live Server or <code>npm run dev</code>) and open its <code>localhost</code> address in Chrome.</li>
-<li><strong>Open the side panel.</strong> Click the VisualEdit icon in Chrome's toolbar. The first time, read the short notice and press <em>I understand</em>. The panel shows a green dot and your project's name when the helper is running.</li>
+<li><strong>Open your site.</strong> Start it the way you always do (for example VS Code Live Server or <code>npm run dev</code>) and open its <code>localhost</code> address in Chrome. A plain HTML project with no server yet: in a second terminal in the same folder run <code>npx http-server -c-1</code> and open the address it prints. So you have two terminal windows open: the helper and your site.</li>
+<li><strong>Open the side panel.</strong> Click the VisualEdit icon in Chrome's toolbar. The first time, read the short notice, tick the box to agree to the <a href="terms.html">Terms</a> and the <a href="privacy.html">Privacy Policy</a>, and press <em>I understand</em>. The panel shows a green dot and your project's name when the helper is running.</li>
 <li><strong>Select an element.</strong> Turn on <em>Select</em> at the top of the panel and click anything on your page.</li>
 <li><strong>Change it.</strong>
   <ul>
@@ -68,6 +68,9 @@
 <ul>
 <li><strong>"Agent offline"</strong>: the helper is not running. Start <code>npx visualedit-agent</code> in your project folder again; the panel finds it within a few seconds.</li>
 <li><strong>"This page doesn't look like the project..."</strong>: the open page belongs to another project than the one the helper was started in. Open that project's site, or start the helper in this page's folder.</li>
+<li><strong>A certificate error when you run <code>npx visualedit-agent</code></strong> (the message mentions <em>certificate</em> or <code>UNABLE_TO_VERIFY_LEAF_SIGNATURE</code>): this is common with antivirus, VPN or office networks. In PowerShell run <code>$env:NODE_OPTIONS="--use-system-ca"</code> (on Mac and Linux: <code>export NODE_OPTIONS=--use-system-ca</code>), then run <code>npx visualedit-agent</code> again in the same window. This needs Node.js 22.15 or newer; with an older Node.js, install the current LTS first.</li>
+<li><strong><code>EADDRINUSE</code> or "address already in use"</strong>: another server is still running on that port, often an old terminal window. Close it with Ctrl+C, or start your site on another port, for example <code>npx http-server -p 5501 -c-1</code>.</li>
+<li><strong>The file changed but the page still looks the same</strong>: the browser is showing an old copy of your CSS. Press Ctrl+Shift+R on the page. If you use <code>http-server</code>, start it with <code>-c-1</code> so it never asks the browser to keep old copies.</li>
 <li><strong>"Element not found in the source file"</strong>: the page is out of date or comes from another folder. Reload the page and select the element again.</li>
 <li><strong>The AI did not change what you expected</strong>: the AI changes only the selected element. Select the right one (the Tree tab helps) and describe the change again.</li>
 <li><strong>"The free AI is at capacity right now"</strong>: try again later. Editing by hand still works.</li>
