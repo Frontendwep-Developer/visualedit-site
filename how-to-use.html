@@ -16,25 +16,51 @@
 <ul>
 <li>Google Chrome with the VisualEdit extension.</li>
 <li><a href="https://nodejs.org">Node.js</a>, the current LTS version (20.12 is the minimum). Install it once; most developers already have it.</li>
-<li>A website project on your computer that you open on <code>localhost</code>: plain HTML and CSS, or React with Vite (Tailwind CSS v4 or plain CSS).</li>
+<li>A website project on your computer that you open on <code>localhost</code>: plain HTML and CSS, or React with Vite (Tailwind CSS v4 or plain CSS). Other frameworks are not supported yet (see below).</li>
 </ul>
+<p>The steps below were tested on Windows with Chrome. The side panel shows the same steps when the helper is not running: pick your kind of project there and it ticks each step as it is done.</p>
 
-<h2>Every time you edit</h2>
+<h2>Step 1: open a terminal in your project folder</h2>
+<p>The terminal must be opened in <strong>your site's folder</strong> (the one with <code>index.html</code>, or with <code>package.json</code>). A new terminal usually starts in your home folder, which is not your project.</p>
+<ul>
+<li><strong>File Explorer:</strong> open your folder, click the address bar, type <code>powershell</code> and press Enter.</li>
+<li><strong>VS Code:</strong> File &gt; Open Folder, then Terminal &gt; New Terminal. It opens in your folder.</li>
+<li><strong>Already in a terminal:</strong> type <code>cd</code>, a space, drag your folder into the window and press Enter.</li>
+</ul>
+<p>The line must end with your folder's name, for example <code>PS C:\Users\you\Desktop\my-site&gt;</code>.</p>
+
+<h2>Step 2: start the helper</h2>
+<p>In that terminal run:</p>
+<p><code>npx visualedit-agent</code></p>
+<p>If it asks <code>Ok to proceed? (y)</code>, type <code>y</code> and press Enter. You should see <code>VisualEdit agent is running</code> and a <code>Project:</code> line. <strong>The <code>Project:</code> line must show your folder.</strong> Keep this window open while you edit. If you start it in your home folder, the top of a drive or a system folder, it does not start and tells you to open a terminal in your site's folder.</p>
+
+<h2>Step 3: start your site</h2>
+<p>Your site needs a server, so you have a second program running next to the helper.</p>
+<h3>Plain HTML and CSS</h3>
+<ul>
+<li><strong>VS Code with Live Server:</strong> open your folder and press <em>Go Live</em> at the bottom right. Your site opens in a new Chrome tab. No Go Live button? Install the "Live Server" extension in VS Code. No second terminal is needed.</li>
+<li><strong>No VS Code:</strong> open a <strong>second</strong> terminal in the same folder (step 1) and run <code>npx http-server -a 127.0.0.1 -c-1</code>. Then open <code>http://localhost:8080</code> in Chrome. (<code>-a 127.0.0.1</code> keeps your site on your own computer, <code>-c-1</code> stops the browser from keeping old copies.)</li>
+<li><strong>Python installed:</strong> <code>py -m http.server 8000 --bind 127.0.0.1</code>, then open <code>http://localhost:8000</code>.</li>
+</ul>
+<h3>React with Vite</h3>
+<p>In a second terminal in the same folder: the first time only run <code>npm install</code> (it can take a few minutes), then <code>npm run dev</code>. The terminal prints an address, usually <code>http://localhost:5173</code>. Open it in Chrome.</p>
+<h3>Not supported yet</h3>
+<p>Next.js, Nuxt, Astro, Gatsby, Remix, Angular, Svelte and Vue projects are not supported yet. If you start the helper in one, it says so and does not change any file. Tell us which framework you use at the address under Help: it helps us decide what to add next.</p>
+
+<h2>Step 4: edit</h2>
 <ol>
-<li><strong>Start the helper in your project folder.</strong> Open a terminal in the folder of your project and run <code>npx visualedit-agent</code>. Keep that window open while you edit. It edits the project of the folder it was started in.</li>
-<li><strong>Open your site.</strong> Start it the way you always do (for example VS Code Live Server or <code>npm run dev</code>) and open its <code>localhost</code> address in Chrome. A plain HTML project with no server yet: in a second terminal in the same folder run <code>npx http-server -c-1</code> and open the address it prints. So you have two terminal windows open: the helper and your site.</li>
-<li><strong>Open the side panel.</strong> Click the VisualEdit icon in Chrome's toolbar. The first time, read the short notice, tick the box to agree to the <a href="terms.html">Terms</a> and the <a href="privacy.html">Privacy Policy</a>, and press <em>I understand</em>. The panel shows a green dot and your project's name when the helper is running.</li>
+<li><strong>Open the side panel.</strong> Click the VisualEdit icon in Chrome's toolbar while your site is open in the tab. The first time, read the short notice, tick the box to agree to the <a href="terms.html">Terms</a> and the <a href="privacy.html">Privacy Policy</a>, and press <em>I understand</em>. The panel shows a green dot and your project's name when the helper is running.</li>
 <li><strong>Select an element.</strong> Turn on <em>Select</em> at the top of the panel and click anything on your page.</li>
 <li><strong>Change it.</strong>
   <ul>
   <li><em>Properties</em>: change colours, sizes, spacing, fonts, borders and more by hand, then press <em>Save</em>. Unlimited and free.</li>
   <li><em>Chat</em>: describe the change in plain words, for example "make this button green and a little bigger". The AI writes it for you.</li>
   <li><em>Tree</em>: see the structure of your page and pick the exact element you want.</li>
-  <li>The <em>+</em> button in Properties adds a new element (a heading, text, a button, a picture...) next to or inside the selected one.</li>
+  <li>The tools row (the chevron next to the tag name) moves, duplicates, adds and deletes the element.</li>
   </ul>
 </li>
 <li><strong>See the result.</strong> The change is written into your files right away and your page updates.</li>
-<li><strong>When you are done</strong>, press Ctrl+C in the terminal to stop the helper.</li>
+<li><strong>When you are done</strong>, press Ctrl+C in each terminal to stop the helper and your site.</li>
 </ol>
 
 <h2>Undo and safety</h2>
@@ -66,13 +92,21 @@
 
 <h2>If something does not work</h2>
 <ul>
-<li><strong>"Agent offline"</strong>: the helper is not running. Start <code>npx visualedit-agent</code> in your project folder again; the panel finds it within a few seconds.</li>
-<li><strong>"This page doesn't look like the project..."</strong>: the open page belongs to another project than the one the helper was started in. Open that project's site, or start the helper in this page's folder.</li>
-<li><strong>A certificate error when you run <code>npx visualedit-agent</code></strong> (the message mentions <em>certificate</em> or <code>UNABLE_TO_VERIFY_LEAF_SIGNATURE</code>): this is common with antivirus, VPN or office networks. In PowerShell run <code>$env:NODE_OPTIONS="--use-system-ca"</code> (on Mac and Linux: <code>export NODE_OPTIONS=--use-system-ca</code>), then run <code>npx visualedit-agent</code> again in the same window. This needs Node.js 22.15 or newer; with an older Node.js, install the current LTS first.</li>
-<li><strong><code>EADDRINUSE</code> or "address already in use"</strong>: another server is still running on that port, often an old terminal window. Close it with Ctrl+C, or start your site on another port, for example <code>npx http-server -p 5501 -c-1</code>.</li>
+<li><strong>"Agent offline"</strong>: the helper is not running. Do step 2 again; the panel finds it within a few seconds.</li>
+<li><strong><code>npx</code> or <code>node</code> is "not recognized"</strong>: Node.js is not installed yet. Install the LTS version from nodejs.org, then close the terminal and open it again.</li>
+<li><strong>The helper refuses to start</strong> ("is your home folder, not a project folder"): the terminal was opened in the wrong place. Open it in your site's folder (step 1) and run the command again.</li>
+<li><strong>The <code>Project:</code> line shows another folder</strong>: press Ctrl+C, open a terminal in your project's folder and start the helper again.</li>
+<li><strong>"The agent is connected. Open your site on localhost..."</strong>: the tab in front is not a site on localhost. Open your site in that tab (step 3), or press <em>Check again</em>.</li>
+<li><strong>"This page is open, but its server is not running"</strong>: your site was stopped. Start it again (step 3) and press <em>Check again</em>.</li>
+<li><strong>"This page is not from the agent's project"</strong> or <strong>"out of date after recent edits"</strong>: the site in the tab and the helper belong to different projects. Check that both were started in the same folder.</li>
+<li><strong>"This project is not supported yet"</strong>: the helper found a framework it cannot edit (see step 3). Nothing was changed.</li>
+<li><strong>A certificate error when you run <code>npx visualedit-agent</code></strong> (the message mentions <em>certificate</em> or <code>UNABLE_TO_VERIFY_LEAF_SIGNATURE</code>): this is common with antivirus, VPN or office networks. In PowerShell run <code>$env:NODE_OPTIONS="--use-system-ca"</code>; in Git Bash, macOS or Linux run <code>export NODE_OPTIONS=--use-system-ca</code>. Then run <code>npx visualedit-agent</code> again in the same window. This needs Node.js 22.15 or newer; with an older Node.js, install the current LTS first.</li>
+<li><strong><code>EADDRINUSE</code> or "address already in use"</strong>: another server is still running on that port, often an old terminal window. Close it with Ctrl+C, or start your site on another port, for example <code>npx http-server -a 127.0.0.1 -p 8081 -c-1</code>.</li>
 <li><strong>The file changed but the page still looks the same</strong>: the browser is showing an old copy of your CSS. Press Ctrl+Shift+R on the page. If you use <code>http-server</code>, start it with <code>-c-1</code> so it never asks the browser to keep old copies.</li>
 <li><strong>"Element not found in the source file"</strong>: the page is out of date or comes from another folder. Reload the page and select the element again.</li>
+<li><strong>"No existing :hover rule found"</strong>: the Hover tab edits an existing <code>:hover</code> rule. Add one to your stylesheet first, for example <code>.button:hover { }</code>.</li>
 <li><strong>The AI did not change what you expected</strong>: the AI changes only the selected element. Select the right one (the Tree tab helps) and describe the change again.</li>
+<li><strong>"You've used all your free AI requests"</strong>: editing by hand in Properties stays free and unlimited. <em>Get Pro</em> under the chat box shows the plans.</li>
 <li><strong>"The free AI is at capacity right now"</strong>: try again later. Editing by hand still works.</li>
 </ul>
 
